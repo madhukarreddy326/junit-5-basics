@@ -15,4 +15,13 @@ class MathUtilsTest {
         int result = utils.add(1,1);
         assertEquals(expected,result,"this method adds the two integers and return integer");
     }
+
+    @Test
+    void testComputCircleArea()
+    {
+        MathUtils utils = new MathUtils();
+        assertEquals(314.1592653589793,utils.computeCircleArea(10.0),"Method failure in the computeCircleRadius");
+
+
+    }
 }

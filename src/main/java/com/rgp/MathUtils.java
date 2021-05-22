@@ -7,4 +7,9 @@ public class MathUtils {
         return a+b;
     }
 
+    public double computeCircleArea(Double radius)
+    {
+        return Math.PI*radius * radius;
+    }
+
 }
