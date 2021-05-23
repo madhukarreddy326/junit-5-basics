@@ -4,6 +4,7 @@ import org.junit.jupiter.api.*;
 import org.junit.jupiter.api.condition.EnabledOnOs;
 import org.junit.jupiter.api.condition.OS;
 
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assumptions.assumeTrue;
@@ -56,6 +57,17 @@ class MathUtilsTest {
     {
        assertEquals(314.1592653589793,utils.computeCircleArea(10.0),"Method failure in the computeCircleRadius");
     }
+    @Test
+    @DisplayName("Method to test Multiply")
+    void testMultiply()
+    {
+
+        Assertions.assertAll(
+                ()->assertEquals(2,utils.multiply(2,1)),
+        ()->assertEquals(0,utils.multiply(2,0)),
+        ()->assertEquals(-2,utils.multiply(2,-1))
+        );
+    }
 
     @Test
     @DisplayName("This method is from TDD")
@@ -79,4 +91,7 @@ class MathUtilsTest {
         assumeTrue(isServerUp);
         System.out.println("this method is related to TDD");
     }
+
+
+
 }
