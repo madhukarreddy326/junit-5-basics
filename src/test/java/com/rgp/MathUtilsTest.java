@@ -5,11 +5,15 @@ import org.junit.jupiter.api.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
+@TestInstance(TestInstance.Lifecycle.PER_CLASS)//this will create instance of MathUtilsTest only once
+    //in case of Per_class then @BeforeAll and @AfterAll can be used without static
+//@TestInstance(TestInstance.Lifecycle.PER_METHOD)
+//this will create instance of MathUtilsTest per each test method
 class MathUtilsTest {
     MathUtils utils;
 
     @BeforeAll
-    static void beforeAllInit()
+     void beforeAllInit()
     {
         System.out.println("This should be called first and it should be called one time @BeforeAll");
     }
@@ -25,7 +29,7 @@ class MathUtilsTest {
         System.out.println("This is the method form @AfterEach");
     }
     @AfterAll
-    static void cleanUpAll()
+     void cleanUpAll()
     {
         System.out.println("This method will be called after all tests are executed @AfterAll");
     }
