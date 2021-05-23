@@ -13,6 +13,7 @@ import static org.junit.jupiter.api.Assumptions.assumeTrue;
     //in case of Per_class then @BeforeAll and @AfterAll can be used without static
 //@TestInstance(TestInstance.Lifecycle.PER_METHOD)
 //this will create instance of MathUtilsTest per each test method
+@DisplayName("When Running MathUtilsTest")
 class MathUtilsTest {
     MathUtils utils;
 
@@ -38,6 +39,39 @@ class MathUtilsTest {
         System.out.println("This method will be called after all tests are executed @AfterAll");
     }
 
+    @Nested
+    @DisplayName("Add method")
+    class AddTest
+    {
+        @Test
+        @DisplayName("When Adding for Positive Numbers")
+        void testPositive()
+        {
+            assertEquals(2,utils.add(1,1),"should return the positive Number");
+
+        }
+        @Test
+        @DisplayName("When Adding for Negative Numbers")
+        void testNegative()
+        {
+            assertEquals(-2,utils.add(-1,-1),"Should return the Negative Numbers");
+
+        }
+        @Test
+        @DisplayName("When Adding for Positive and Negative Numbers")
+        void testPositiveAndNegative()
+        {
+            assertEquals(0,utils.add(-1,1),"should return 0");
+
+        }
+        @Test
+        @DisplayName("When Adding for 0 and 0 Numbers")
+        void testaddZero()
+        {
+            assertEquals(0,utils.add(0,0),"should return 0");
+
+        }
+    }
     @Test
     void testAdd() {
         //System.out.println("Tests are running");
