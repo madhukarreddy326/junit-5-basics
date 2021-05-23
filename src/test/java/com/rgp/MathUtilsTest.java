@@ -14,6 +14,7 @@ import static org.junit.jupiter.api.Assumptions.assumeTrue;
 //@TestInstance(TestInstance.Lifecycle.PER_METHOD)
 //this will create instance of MathUtilsTest per each test method
 @DisplayName("When Running MathUtilsTest")
+@Tag("Math")
 class MathUtilsTest {
     MathUtils utils;
 
@@ -41,6 +42,7 @@ class MathUtilsTest {
 
     @Nested
     @DisplayName("Add method")
+    @Tag("Math")
     class AddTest
     {
         @Test
@@ -73,6 +75,7 @@ class MathUtilsTest {
         }
     }
     @Test
+    @Tag("Math")
     void testAdd() {
         //System.out.println("Tests are running");
       // fail("not yet implemented");
@@ -81,6 +84,7 @@ class MathUtilsTest {
         assertEquals(expected,result,"this method adds the two integers and return integer");
     }
     @Test
+    @Tag("Math")
     void testDivide()
     {
         assertThrows(ArithmeticException.class,()->utils.divide(1,0),"Divide by 0 will leads Arithmetic exception");
@@ -88,6 +92,7 @@ class MathUtilsTest {
 
     @Test
     @RepeatedTest(3)
+    @Tag("Circle")
     void testComputCircleArea()
     {
        assertEquals(314.1592653589793,utils.computeCircleArea(10.0),"Method failure in the computeCircleRadius");
