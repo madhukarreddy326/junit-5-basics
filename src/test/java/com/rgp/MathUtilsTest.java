@@ -87,6 +87,7 @@ class MathUtilsTest {
     }
 
     @Test
+    @RepeatedTest(3)
     void testComputCircleArea()
     {
        assertEquals(314.1592653589793,utils.computeCircleArea(10.0),"Method failure in the computeCircleRadius");
