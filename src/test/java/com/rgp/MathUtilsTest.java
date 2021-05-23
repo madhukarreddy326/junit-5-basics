@@ -1,7 +1,6 @@
 package com.rgp;
 
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
@@ -9,11 +8,28 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 class MathUtilsTest {
     MathUtils utils;
 
+    @BeforeAll
+    static void beforeAllInit()
+    {
+        System.out.println("This should be called first and it should be called one time @BeforeAll");
+    }
+
     @BeforeEach
     void init() {
 
         utils = new MathUtils();
     }
+    @AfterEach
+    void cleanUp()
+    {
+        System.out.println("This is the method form @AfterEach");
+    }
+    @AfterAll
+    static void cleanUpAll()
+    {
+        System.out.println("This method will be called after all tests are executed @AfterAll");
+    }
+
     @Test
     void testAdd() {
         //System.out.println("Tests are running");
