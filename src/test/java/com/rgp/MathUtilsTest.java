@@ -1,9 +1,12 @@
 package com.rgp;
 
 import org.junit.jupiter.api.*;
+import org.junit.jupiter.api.condition.EnabledOnOs;
+import org.junit.jupiter.api.condition.OS;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assumptions.assumeTrue;
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)//this will create instance of MathUtilsTest only once
     //in case of Per_class then @BeforeAll and @AfterAll can be used without static
@@ -55,10 +58,25 @@ class MathUtilsTest {
     }
 
     @Test
-    @DisplayName("This method is form TDD")
+    @DisplayName("This method is from TDD")
     @Disabled
     void testTDD()
     {
+        System.out.println("this method is related to TDD");
+    }
+    @Test
+    @DisplayName("This method is from testEnabled")
+    @EnabledOnOs(OS.LINUX)
+    void testEnabled()
+    {
+        System.out.println("this method is related to TDD");
+    }
+    @Test
+    @DisplayName("This method is to test assumeTrue")
+    void testAssume()
+    {
+        boolean isServerUp = false;
+        assumeTrue(isServerUp);
         System.out.println("this method is related to TDD");
     }
 }
