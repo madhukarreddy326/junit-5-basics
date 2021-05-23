@@ -17,6 +17,9 @@ import static org.junit.jupiter.api.Assumptions.assumeTrue;
 @Tag("Math")
 class MathUtilsTest {
     MathUtils utils;
+    TestInfo testInfo;
+    TestReporter testReporter;
+
 
     @BeforeAll
      void beforeAllInit()
@@ -25,9 +28,12 @@ class MathUtilsTest {
     }
 
     @BeforeEach
-    void init() {
+    void init(TestInfo testInfo,TestReporter testReporter) {
+        this.testInfo = testInfo;
+        this.testReporter = testReporter;
 
         utils = new MathUtils();
+        testReporter.publishEntry("Running : "+testInfo.getDisplayName() +" with Tags : "+testInfo.getTags());
     }
     @AfterEach
     void cleanUp()
@@ -95,12 +101,14 @@ class MathUtilsTest {
     @Tag("Circle")
     void testComputCircleArea()
     {
-       assertEquals(314.1592653589793,utils.computeCircleArea(10.0),"Method failure in the computeCircleRadius");
+       assertEquals(314.1592653589793,utils.computeCircleArea(10.0),()->"Method failure in the computeCircleRadius");
     }
     @Test
     @DisplayName("Method to test Multiply")
     void testMultiply()
     {
+      //  System.out.println();
+        testReporter.publishEntry("Running : "+testInfo.getDisplayName() +" with Tags : "+testInfo.getTags());
 
         Assertions.assertAll(
                 ()->assertEquals(2,utils.multiply(2,1)),
@@ -127,7 +135,7 @@ class MathUtilsTest {
     @DisplayName("This method is to test assumeTrue")
     void testAssume()
     {
-        boolean isServerUp = false;
+        boolean isServerUp = true;
         assumeTrue(isServerUp);
         System.out.println("this method is related to TDD");
     }
