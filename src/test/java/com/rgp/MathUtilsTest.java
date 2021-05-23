@@ -15,6 +15,14 @@ class MathUtilsTest {
         int result = utils.add(1,1);
         assertEquals(expected,result,"this method adds the two integers and return integer");
     }
+    @Test
+    void testDivide()
+    {
+        MathUtils utils = new MathUtils();
+        assertThrows(ArithmeticException.class,()->utils.divide(1,0),"Divide by 0 will leads Arithmetic exception");
+
+
+    }
 
     @Test
     void testComputCircleArea()
